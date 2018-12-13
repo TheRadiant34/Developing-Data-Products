@@ -1,0 +1,35 @@
+---
+title: "Developing Data Products Week 2 Assignment"
+author: "Nathan W"
+date: "December 13, 2018"
+output: 
+  html_document: 
+    keep_md: yes
+---
+#Create a web page using R Markdown that features a map created with Leaflet.
+
+##Goal: Create a map that shows the Smithsonian's National Zoo in Washington D.C.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Load leaflet
+```{r}
+library(leaflet)
+```
+
+### Create Map
+```{r}
+my_map<- leaflet() %>% addTiles()
+
+```
+
+### Location of National Zoo and link to website
+```{r}
+SmithNatlZoo<- c("<a href = 'https://nationalzoo.si.edu/'>Smithsonian National Zoo</a>")
+my_map<- my_map %>%
+        addMarkers(lat = 38.928782, lng = -77.048692, popup = SmithNatlZoo)
+my_map
+```
+
+### Results in a map with an interactive map.
