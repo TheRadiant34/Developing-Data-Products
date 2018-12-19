@@ -1,0 +1,44 @@
+---
+title: "Developing Data Products Week 3 Assignment"
+author: "Nathan W"
+date: "December 14, 2018"
+output: 
+  ioslides_presentation: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Goal
+
+Create a web page presentation using R Markdown that features a plot created with Plotly.
+
+
+## Load Plotly
+
+```{r}
+library(plotly)
+```
+
+## Comparing the miles-per-gallon (mpg) to horsepower(hp) in the "mtcars" dataset
+
+##### - The mtcars dataset consists of data extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+
+```{r cars, echo = TRUE}
+head(mtcars, 5)
+
+```
+
+## Plotly graph
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+plot_ly(mtcars, y = ~mpg, x = ~hp , mode = "markers", color = ~as.factor(cyl)) %>%
+layout(title = "mpg vs hp colored by cylinders")
+
+
+
+```
+
